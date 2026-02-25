@@ -1,4 +1,4 @@
-const launchDate = new Date("2026-03-09T21:30:00+05:00").getTime();
+const launchDate = new Date("2026-01-09T00:00:00+05:00").getTime();
 
 const overlay = document.getElementById("launchOverlay");
 const lockedContent = document.getElementById("lockedContent");
