@@ -8,9 +8,6 @@ const hoursEl = document.getElementById("hours");
 const minutesEl = document.getElementById("minutes");
 const secondsEl = document.getElementById("seconds");
 
-/* Блокируем скролл сразу */
-document.body.classList.add("no-scroll");
-
 function updateTimer() {
     const now = Date.now();
     const distance = launchDate - now;
@@ -18,10 +15,7 @@ function updateTimer() {
     if (distance <= 0) {
         overlay.style.display = "none";
         lockedContent.style.display = "block";
-
-        /* Разблокируем скролл */
         document.body.classList.remove("no-scroll");
-
         clearInterval(timerInterval);
         return;
     }
@@ -37,5 +31,15 @@ function updateTimer() {
     secondsEl.textContent = String(seconds).padStart(2, "0");
 }
 
-const timerInterval = setInterval(updateTimer, 1000);
-updateTimer();
+if (Date.now() < launchDate) {
+    overlay.style.display = "flex";
+    lockedContent.style.display = "none";
+    document.body.classList.add("no-scroll");
+
+    const timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();
+} else {
+    overlay.style.display = "none";
+    lockedContent.style.display = "block";
+    document.body.classList.remove("no-scroll");
+}
