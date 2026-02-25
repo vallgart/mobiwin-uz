@@ -3,6 +3,10 @@
     display: none;
 }
 
+.launch-overlay {
+    display: none;
+}
+
 /* ===============================
    OVERLAY
 ================================= */
