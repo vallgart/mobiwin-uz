@@ -1,4 +1,4 @@
-const launchDate = new Date("2026-01-09T00:00:00+05:00").getTime();
+const launchDate = new Date("2026-02-09T00:00:00+05:00").getTime();
 
 const overlay = document.getElementById("launchOverlay");
 const lockedContent = document.getElementById("lockedContent");
@@ -42,4 +42,5 @@ if (Date.now() < launchDate) {
     overlay.style.display = "none";
     lockedContent.style.display = "block";
     document.body.classList.remove("no-scroll");
+
 }
